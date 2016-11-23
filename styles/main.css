@@ -1,3 +1,25 @@
-body {
-  color: red;
+#green-tile, #red-tile, #blue-tile, #yellow-tile {
+  width: 100px;
+  height: 100px;
+  float: left;
+}
+
+#green-tile {
+  background-color: green;
+}
+
+#red-tile {
+  background-color: red;
+}
+
+#blue-tile {
+  background-color: blue;
+}
+
+#yellow-tile {
+  background-color: yellow;
+}
+
+.lighten {
+  opacity: 0.5;
 }
