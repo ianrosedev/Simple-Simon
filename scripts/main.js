@@ -10,9 +10,8 @@ $(function() {
   });
 
   function activeTile() {
-    return Math.floor(Math.random() * 4) + 0;
+    return Math.floor(Math.random() * 4);
   }
-
 
   function colorsArray(times) {
     let colors = [];
@@ -31,10 +30,10 @@ $(function() {
       }, i * 1000);
       setTimeout(function() {
         $('#' + array[i - 1] + '-tile').removeClass('lighten');
-      }, i * 1200);
+      }, i * 1100);
     }
   }
 
-  $('button').click(() => display());
+  $('#play-game').click(() => display());
 
 });

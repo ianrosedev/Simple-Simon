@@ -4,19 +4,19 @@
   float: left;
 }
 
-#green-tile {
+.green {
   background-color: green;
 }
 
-#red-tile {
+.red {
   background-color: red;
 }
 
-#blue-tile {
+.blue {
   background-color: blue;
 }
 
-#yellow-tile {
+.yellow {
   background-color: yellow;
 }
 
