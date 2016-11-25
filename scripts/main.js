@@ -28,7 +28,7 @@ $(function game() {
       }, i * 1000);
       setTimeout(function() {
         $('#' + array[i - 1] + '-tile').removeClass('lighten');
-      }, i * 1100);
+      }, i * 1150);
     }
     return array;
   }
