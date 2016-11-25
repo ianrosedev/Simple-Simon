@@ -57,12 +57,12 @@ $(function game() {
     $('#submit-answer').click(() => {
       if (cpuColors.join('') !== userInput.join('')) {
         $('#user-input-answers').html(`Your Guess: ${userInput.join(', ')}`);
-        $('#game-result').html(`Sorry, It's: ${cpuColors.join(', ')}.`);
+        $('#game-result').html(`Sorry, It's: ${cpuColors.join(', ')}.`).addClass('red');
         $('#play-game').html('Try Again!');
         // Make the game reset here...
       } else {
         $('#user-input-answers').html('');
-        $('#game-result').html('You Got It! Press Go Again!');
+        $('#game-result').html('You Got It! Press Go Again!').removeClass('red').addClass('green');
         $('#play-game').html('Go Again!');
       }
     });
