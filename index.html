@@ -2,11 +2,13 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>JQuery Testing</title>
+  <title>Game</title>
   <link href="styles/main.css" rel="stylesheet">
 </head>
 <body>
+
   <h1>Game</h1>
+
   <div id="game">
     <div id="green-tile" class="green"></div>
     <div id="red-tile" class="red"></div>
@@ -16,17 +18,28 @@
     <div class="clear-both"></div>
   </div>
 
-  <button id="play-game">Go!</button>
+  <button id="play-game">Play!</button>
 
   <div id="user-input">
     <button id="green-input" class="green">Green</button>
-    <button id="blue-input" class="blue">Blue</button>
     <button id="red-input" class="red">Red</button>
+    <button id="blue-input" class="blue">Blue</button>
     <button id="yellow-input" class="yellow">Yellow</button>
+  </div>
+
+  <button id="submit-answer">Answer!</button>
+
+  <div id="user-input">
+    <p>Your Answer: <span id="user-input-answers"></span></p>
+  </div>
+
+  <div id="result">
+    <p id="game-result"></p>
   </div>
 
   <!-- JavaScript -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="scripts/main.js"></script>
+
 </body>
 </html>

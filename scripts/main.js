@@ -1,7 +1,5 @@
 $(function() {
 
-  $('#test-bed').html('Testing 123');
-
   const tiles = Object.freeze({
     0: 'green',
     1: 'red',
@@ -34,6 +32,22 @@ $(function() {
     }
   }
 
+  function userInput() {
+    let input = [];
+
+    $('#green-input').click(() => input.push('green'));
+    $('#red-input').click(() => input.push('red'));
+    $('#blue-input').click(() =>  input.push('blue'));
+    $('#yellow-input').click(() => input.push('yellow'));
+    $('#submit-answer').click(() => {
+      console.log(input);
+      $('#user-input-answers').html(input.join(' '));
+      return input;
+    });
+
+  }
+
   $('#play-game').click(() => display());
+  userInput();
 
 });
