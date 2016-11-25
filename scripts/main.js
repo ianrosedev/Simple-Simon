@@ -7,11 +7,12 @@ $(function game() {
     3: 'yellow'
   });
 
+  // Random tile
   function activeTiles() {
     return Math.floor(Math.random() * 4);
   }
 
-  // Sets the array of cpu tiles selected
+  // Sets the array of random tiles selected
   function colorsArray(times) {
     let colors = [];
     for (let i = 0; i < times; i++) {
@@ -61,7 +62,7 @@ $(function game() {
   $('#play-game').click(() => {
     playGame();
     // Clears results
-    $('#game-result, #user-input-answers').html(' ');
+    $('#game-result, #user-input-answers').html('');
   });
 
 });
