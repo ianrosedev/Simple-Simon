@@ -1,27 +1,39 @@
+body {
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+#game {
+  width: 410px;;
+  margin: auto;
+}
+
 #green-tile, #red-tile, #blue-tile, #yellow-tile {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   float: left;
 }
 
-.green {
+
+.green, #green-tile {
   background-color: green;
 }
 
-.red {
+.red, #red-tile {
   background-color: red;
 }
 
-.blue {
+.blue, #blue-tile {
   background-color: blue;
 }
 
-.yellow {
+.yellow, #yellow-tile {
   background-color: yellow;
 }
 
 .lighten {
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 .clear-both {

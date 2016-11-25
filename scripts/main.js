@@ -19,7 +19,6 @@ $(function game() {
     return colors;
   }
 
-
   function display(array = colorsArray(5)) {
     for (let i = 0; i <= array.length; i++) {
       setTimeout(function() {
@@ -48,7 +47,6 @@ $(function game() {
       $('#user-input-answers').html(userInput.join(', '));
       if (cpuColors.join('') !== userInput.join('')) {
         $('#game-result').html(`You Lose! It was: ${cpuColors.join(', ')}.`);
-
       } else {
         $('#game-result').html('You WIN!');
       }
