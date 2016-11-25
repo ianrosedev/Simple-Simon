@@ -30,31 +30,31 @@ $(function game() {
         $('#' + array[i - 1] + '-tile').removeClass('lighten');
       }, i * 1100);
     }
-
     return array;
   }
 
   function playGame(cpuColors = display()) {
     let userInput = [];
 
+    // User Input
     $('#green-input').click(() => userInput.push('green'));
     $('#red-input').click(() => userInput.push('red'));
     $('#blue-input').click(() =>  userInput.push('blue'));
     $('#yellow-input').click(() => userInput.push('yellow'));
 
+    // Submit button clicked
+    // Output game results
     $('#submit-answer').click(() => {
       $('#user-input-answers').html(userInput.join(', '));
-      if (cpuColors.join('') === userInput.join('')) {
-        $('#game-result').html('WIN!');
+      if (cpuColors.join('') !== userInput.join('')) {
+        $('#game-result').html(`You Lose! It was: ${cpuColors.join(', ')}.`);
+
       } else {
-        $('#game-result').html('You Lose!');
+        $('#game-result').html('You WIN!');
       }
     });
+};
 
-  };
-
-  $('#play-game').click(() => {
-    playGame();
-  });
+  $('#play-game').click(() => playGame());
 
 });
