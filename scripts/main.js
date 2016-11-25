@@ -19,7 +19,7 @@ $(function game() {
     return colors;
   }
 
-  function display(array = colorsArray(5)) {
+    function display(array = colorsArray(5)) {
     for (let i = 0; i <= array.length; i++) {
       setTimeout(function() {
         // !Why does i - 1 make this work?
@@ -42,9 +42,9 @@ $(function game() {
     $('#yellow-input').click(() => userInput.push('yellow'));
 
     // Submit button clicked
-    // Output game results
+    // Outputs game results
     $('#submit-answer').click(() => {
-      $('#user-input-answers').html(userInput.join(', '));
+      $('#user-input-answers').html(`Your Guess: ${userInput.join(', ')}`);
       if (cpuColors.join('') !== userInput.join('')) {
         $('#game-result').html(`You Lose! It was: ${cpuColors.join(', ')}.`);
       } else {
@@ -53,6 +53,9 @@ $(function game() {
     });
 };
 
-  $('#play-game').click(() => playGame());
+  $('#play-game').click(() => {
+    playGame();
+    $('#game-result, #user-input-answers').html(' ');
+  });
 
 });
