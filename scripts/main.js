@@ -1,7 +1,7 @@
-$(function game() {
+$(function() {
 
-  // Counting
-  let gameCount= (() => {
+  // Count
+  let gameCount= (function() {
     let count = 0;
     return function(addToCount) {
       return count += addToCount;
@@ -44,32 +44,34 @@ $(function game() {
   }
 
   // Logic to make game work
-  function playGame(cpuColors = display()) {
+  function playGame() {
+    let cpuColors = display();
     let userInput = [];
 
     // User Input
-    $('#green-input').click(() => userInput.push('green'));
-    $('#red-input').click(() => userInput.push('red'));
-    $('#blue-input').click(() =>  userInput.push('blue'));
-    $('#yellow-input').click(() => userInput.push('yellow'));
+    $('#green-input').click(function() {return userInput.push('green');});
+    $('#red-input').click(function() {return userInput.push('red');});
+    $('#blue-input').click(function() {return userInput.push('blue');});
+    $('#yellow-input').click(function() {return userInput.push('yellow');});
 
     // Submit button clicked reasons and outputs game results
-    $('#submit-answer').click(() => {
+    $('#submit-answer').click(function() {
       if (cpuColors.join('') !== userInput.join('')) {
         $('#user-input-answers').html(`Your Guess: ${userInput.join(', ')}`);
-        $('#game-result').html(`Sorry, It's: ${cpuColors.join(', ')}.`).addClass('red');
+        $('#game-result').html(`Sorry, It Was: ${cpuColors.join(', ')}`).addClass('red');
         $('#play-game').html('Try Again!');
         // Make the game reset here...
+
       } else {
         $('#user-input-answers').html('');
-        $('#game-result').html('You Got It! Press Go Again!').removeClass('red').addClass('green');
+        $('#game-result').html('You Got It! Press: Go Again!').removeClass('red').addClass('green');
         $('#play-game').html('Go Again!');
       }
     });
   };
 
   // Game Start
-  $('#play-game').click(() => {
+  $('#play-game').click(function() {
     playGame();
     // Clears results
     $('#game-result, #user-input-answers').html('');
