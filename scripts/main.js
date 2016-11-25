@@ -1,4 +1,4 @@
-$(function() {
+$(function game() {
 
   const tiles = Object.freeze({
     0: 'green',
@@ -19,8 +19,8 @@ $(function() {
     return colors;
   }
 
+
   function display(array = colorsArray(5)) {
-    console.log(array);
     for (let i = 0; i <= array.length; i++) {
       setTimeout(function() {
         // !Why does i - 1 make this work?
@@ -30,24 +30,31 @@ $(function() {
         $('#' + array[i - 1] + '-tile').removeClass('lighten');
       }, i * 1100);
     }
+
+    return array;
   }
 
-  function userInput() {
-    let input = [];
+  function playGame(cpuColors = display()) {
+    let userInput = [];
 
-    $('#green-input').click(() => input.push('green'));
-    $('#red-input').click(() => input.push('red'));
-    $('#blue-input').click(() =>  input.push('blue'));
-    $('#yellow-input').click(() => input.push('yellow'));
+    $('#green-input').click(() => userInput.push('green'));
+    $('#red-input').click(() => userInput.push('red'));
+    $('#blue-input').click(() =>  userInput.push('blue'));
+    $('#yellow-input').click(() => userInput.push('yellow'));
+
     $('#submit-answer').click(() => {
-      console.log(input);
-      $('#user-input-answers').html(input.join(' '));
-      return input;
+      $('#user-input-answers').html(userInput.join(', '));
+      if (cpuColors.join('') === userInput.join('')) {
+        $('#game-result').html('WIN!');
+      } else {
+        $('#game-result').html('You Lose!');
+      }
     });
 
-  }
+  };
 
-  $('#play-game').click(() => display());
-  userInput();
+  $('#play-game').click(() => {
+    playGame();
+  });
 
 });
