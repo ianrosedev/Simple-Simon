@@ -7,19 +7,21 @@ $(function game() {
     3: 'yellow'
   });
 
-  function activeTile() {
+  function activeTiles() {
     return Math.floor(Math.random() * 4);
   }
 
+  // Sets the array of cpu tiles selected
   function colorsArray(times) {
     let colors = [];
     for (let i = 0; i < times; i++) {
-      colors[i] = tiles[activeTile()];
+      colors[i] = tiles[activeTiles()];
     }
     return colors;
   }
 
-    function display(array = colorsArray(5)) {
+  // Makes the tiles flash
+  function display(array = colorsArray(5)) {
     for (let i = 0; i <= array.length; i++) {
       setTimeout(function() {
         $('#' + array[i - 1] + '-tile').addClass('lighten');
@@ -31,6 +33,7 @@ $(function game() {
     return array;
   }
 
+  // Logic to make game work
   function playGame(cpuColors = display()) {
     let userInput = [];
 
@@ -40,8 +43,7 @@ $(function game() {
     $('#blue-input').click(() =>  userInput.push('blue'));
     $('#yellow-input').click(() => userInput.push('yellow'));
 
-    // Submit button clicked
-    // Outputs game results
+    // Submit button clicked reasons and outputs game results
     $('#submit-answer').click(() => {
       if (cpuColors.join('') !== userInput.join('')) {
         $('#user-input-answers').html(`Your Guess: ${userInput.join(', ')}`);
@@ -58,6 +60,7 @@ $(function game() {
   // Game Start
   $('#play-game').click(() => {
     playGame();
+    // Clears results
     $('#game-result, #user-input-answers').html(' ');
   });
 
