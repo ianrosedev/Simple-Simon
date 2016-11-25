@@ -1,5 +1,14 @@
 $(function game() {
 
+  // Counting
+  let gameCount= (() => {
+    let count = 0;
+    return function(addToCount) {
+      return count += addToCount;
+    };
+  })();
+
+  // Tiles by number
   const tiles = Object.freeze({
     0: 'green',
     1: 'red',
@@ -22,7 +31,7 @@ $(function game() {
   }
 
   // Makes the tiles flash
-  function display(array = colorsArray(5)) {
+  function display(array = colorsArray(gameCount(0.5))) {
     for (let i = 0; i <= array.length; i++) {
       setTimeout(function() {
         $('#' + array[i - 1] + '-tile').addClass('lighten');
@@ -52,8 +61,8 @@ $(function game() {
         $('#play-game').html('Try Again!');
       } else {
         $('#user-input-answers').html('');
-        $('#game-result').html('You WIN!');
-        $('#play-game').html('Play Again!');
+        $('#game-result').html('You Got It! Press Go Again!');
+        $('#play-game').html('Go Again!');
       }
     });
   };
