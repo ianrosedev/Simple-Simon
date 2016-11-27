@@ -49,8 +49,9 @@ $(function() {
 
   //Play game
   $('#play-game').click(function() {
-    $('#user-input-answers, #game-result').html('');
     display();
+    // Clear some data
+    $('#user-input-answers, #game-result').html('');
     UserColors = [];
   });
 
