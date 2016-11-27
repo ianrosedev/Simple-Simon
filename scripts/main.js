@@ -17,7 +17,7 @@ $(function() {
   function display() {
     let array = colorsArray();
 
-    for (let i = 0, l = array.length; i <= l; i++) {
+    for (let i = 0; i < array.length; i++) {
       setTimeout(function() {
         $('#' + array[i - 1] + '-tile').addClass('darken');
       }, i * 1000);
