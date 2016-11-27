@@ -17,13 +17,13 @@ $(function() {
   function display() {
     let array = colorsArray();
 
-    for (let i = 0; i < array.length; i++) {
+    for (let i = 0; i <= array.length; i++) {
       setTimeout(function() {
         $('#' + array[i - 1] + '-tile').addClass('darken');
       }, i * 1000);
       setTimeout(function() {
         $('#' + array[i - 1] + '-tile').removeClass('darken');
-      }, i * 1200);
+      }, i * 1150);
     }
   }
 
@@ -50,7 +50,7 @@ $(function() {
   //Play game
   $('#play-game').click(function() {
     display();
-    // Clear some data
+    // Clear data
     $('#user-input-answers, #game-result').html('');
     UserColors = [];
   });
