@@ -1,37 +1,22 @@
 $(function() {
 
-  // Count
-  let gameCount= (function() {
-    let count = 0;
-    return function(addToCount) {
-      return count += addToCount;
-    };
-  })();
+  let MasterColors = [];
+  let UserColors = [];
 
-  // Tiles by number
-  const tiles = Object.freeze({
-    0: 'green',
-    1: 'red',
-    2: 'blue',
-    3: 'yellow'
-  });
+  // Array of colors
+  function colorsArray() {
+    const colors = ['green', 'red', 'blue', 'yellow'];
 
-  // Random tile
-  function activeTiles() {
-    return Math.floor(Math.random() * 4);
-  }
-
-  // Sets the array of random tiles selected
-  function colorsArray(times) {
-    let colors = [];
-    for (let i = 0; i < times; i++) {
-      colors[i] = tiles[activeTiles()];
-    }
-    return colors;
+    return (function() {
+      MasterColors.push(colors[Math.floor(Math.random() * 4)]);
+      return MasterColors;
+    })();
   }
 
   // Makes the tiles flash
-  function display(array = colorsArray(gameCount(0.5))) {
+  function display() {
+    let array = colorsArray();
+
     for (let i = 0; i <= array.length; i++) {
       setTimeout(function() {
         $('#' + array[i - 1] + '-tile').addClass('darken');
@@ -40,41 +25,33 @@ $(function() {
         $('#' + array[i - 1] + '-tile').removeClass('darken');
       }, i * 1150);
     }
-    return array;
   }
 
-  // Logic to make game work
-  function playGame() {
-    let cpuColors = display();
-    let userInput = [];
+  // User Input
+  $('#green-input').click(function() {UserColors.push('green');});
+  $('#red-input').click(function() {UserColors.push('red');});
+  $('#blue-input').click(function() {UserColors.push('blue');});
+  $('#yellow-input').click(function() {UserColors.push('yellow');});
 
-    // User Input
-    $('#green-input').click(function() {return userInput.push('green');});
-    $('#red-input').click(function() {return userInput.push('red');});
-    $('#blue-input').click(function() {return userInput.push('blue');});
-    $('#yellow-input').click(function() {return userInput.push('yellow');});
+  // User Submit
+  $('#submit-answer').click(function() {
+    if (MasterColors.join('') !== UserColors.join('')) {
+      $('#game-result').html(`Sorry, It Was: ${MasterColors.join(', ')}`).addClass('red');
+      $('#user-input-answers').html(`Your Guess: ${UserColors.join(', ')}`);
+      $('#play-game').html('Play!');
+      MasterColors = [];
+    } else {
+      $('#game-result').html('You Got It! Press: Go Again!').removeClass('red').addClass('green');
+      $('#user-input-answers').html('');
+      $('#play-game').html('Go Again!');
+    }
+  });
 
-    // Submit button clicked reasons and outputs game results
-    $('#submit-answer').click(function() {
-      if (cpuColors.join('') !== userInput.join('')) {
-        $('#user-input-answers').html(`Your Guess: ${userInput.join(', ')}`);
-        $('#game-result').html(`Sorry, It Was: ${cpuColors.join(', ')}`).addClass('red');
-        $('#play-game').html('Try Again!');
-        // Make the game reset here...
-
-      } else {
-        $('#user-input-answers').html('');
-        $('#game-result').html('You Got It! Press: Go Again!').removeClass('red').addClass('green');
-        $('#play-game').html('Go Again!');
-      }
-    });
-  };
-
-  // Game Start
+  //Play game
   $('#play-game').click(function() {
-    playGame();
-    // Clears results
-    $('#game-result, #user-input-answers').html('');
+    $('#user-input-answers, #game-result').html('');
+    display();
+    UserColors = [];
   });
 
 });
