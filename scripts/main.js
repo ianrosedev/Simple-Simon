@@ -17,13 +17,13 @@ $(function() {
   function display() {
     let array = colorsArray();
 
-    for (let i = 0; i <= array.length; i++) {
+    for (let i = 0, l = array.length; i <= l; i++) {
       setTimeout(function() {
         $('#' + array[i - 1] + '-tile').addClass('darken');
       }, i * 1000);
       setTimeout(function() {
         $('#' + array[i - 1] + '-tile').removeClass('darken');
-      }, i * 1150);
+      }, i * 1200);
     }
   }
 
