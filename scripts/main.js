@@ -34,10 +34,10 @@ $(function() {
   function display(array = colorsArray(gameCount(0.5))) {
     for (let i = 0; i <= array.length; i++) {
       setTimeout(function() {
-        $('#' + array[i - 1] + '-tile').addClass('lighten');
+        $('#' + array[i - 1] + '-tile').addClass('darken');
       }, i * 1000);
       setTimeout(function() {
-        $('#' + array[i - 1] + '-tile').removeClass('lighten');
+        $('#' + array[i - 1] + '-tile').removeClass('darken');
       }, i * 1150);
     }
     return array;
