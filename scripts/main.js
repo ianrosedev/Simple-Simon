@@ -35,21 +35,26 @@ $(function() {
 
   // User Submit
   $('#submit-answer').click(function() {
+    $('#play-game').prop('disabled', false);
+    $(this).prop('disabled', true).addClass('hide');
+
     if (MasterColors.join('') !== UserColors.join('')) {
       $('#game-result').html(`Sorry, It Was: ${MasterColors.join(', ')}`).addClass('red');
       $('#user-input-answers').html(`Your Guess: ${UserColors.join(', ')}`);
-      $('#play-game').html('Play!');
+      $('#play-game').html('Play Again?').removeClass('hide');
       MasterColors = [];
     } else {
       $('#game-result').html('You Got It! Press: Go Again!').removeClass('red').addClass('green');
       $('#user-input-answers').html('');
-      $('#play-game').html('Go Again!');
+      $('#play-game').html('Go Again!').removeClass('hide');
     }
   });
 
   //Play game
   $('#play-game').click(function() {
     display();
+    $('#submit-answer').prop('disabled', false).removeClass('hide');
+    $(this).prop('disabled', true).addClass('hide');
 
     // Clear data
     $('#user-input-answers, #game-result').html('');

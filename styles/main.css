@@ -5,10 +5,6 @@ body {
   font-size: 18px;
 }
 
-button {
-  font-size: 18px;
-}
-
 #game {
   width: 400px;
   margin: auto;
@@ -19,7 +15,6 @@ button {
   height: 200px;
   float: left;
 }
-
 
 .green, #green-tile {
   background-color: green;
@@ -37,15 +32,20 @@ button {
   background-color: yellow;
 }
 
-.darken {
-  opacity: 0.6;
+button {
+  font-size: 18px;
+  margin-top: 20px;
+  width: 180px;
 }
 
 .clear-both {
   clear: both;
 }
 
-button {
-  margin-top: 20px;
-  width: 180px;
+.darken {
+  opacity: 0.6;
+}
+
+.hide {
+  display: none;
 }
