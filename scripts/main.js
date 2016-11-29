@@ -16,11 +16,16 @@ $(function() {
   // Makes the tiles flash
   function display() {
     let array = colorsArray();
-    let timeWait = 1000;
+    let timeWait = 1200;
     let timeFlash = 500;
+    let l = array.length;
 
-    for (let i = 0, l = array.length; i < l; i++) {
+    if ((l + 1) % 5 === 0) {
+      timeWait -= 50;
+      timeFlash -= 5;
+    }
 
+    for (let i = 0; i < l; i++) {
       setTimeout(function() {
         $('#' + array[i] + '-tile').addClass('darken');
         setTimeout(function() {
