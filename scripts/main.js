@@ -16,14 +16,17 @@ $(function() {
   // Makes the tiles flash
   function display() {
     let array = colorsArray();
+    let timeWait = 1000;
+    let timeFlash = 200;
 
     for (let i = 0, l = array.length; i < l; i++) {
+
       setTimeout(function() {
         $('#' + array[i] + '-tile').addClass('darken');
         setTimeout(function() {
           $('#' + array[i] + '-tile').removeClass('darken');
-        }, 500);
-      }, i * 1000);
+        }, timeFlash);
+      }, i * timeWait);
     }
   }
 
