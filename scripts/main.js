@@ -16,11 +16,11 @@ $(function() {
   // Makes the tiles flash
   function display() {
     let array = colorsArray();
-    let timeWait = 1200;
+    let timeWait = 1150;
     let timeFlash = 500;
     let l = array.length;
 
-    if ((l + 1) % 5 === 0) {
+    if ((l + 1) % 7 === 0) {
       timeWait -= 50;
       timeFlash -= 5;
     }
