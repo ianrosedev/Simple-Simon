@@ -17,7 +17,7 @@ $(function() {
   function display() {
     let array = colorsArray();
     let timeWait = 1000;
-    let timeFlash = 200;
+    let timeFlash = 500;
 
     for (let i = 0, l = array.length; i < l; i++) {
 
