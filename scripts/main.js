@@ -22,7 +22,7 @@ $(function() {
         $('#' + array[i] + '-tile').addClass('darken');
         setTimeout(function() {
           $('#' + array[i] + '-tile').removeClass('darken');
-        }, 700);
+        }, 500);
       }, i * 1000);
     }
   }
