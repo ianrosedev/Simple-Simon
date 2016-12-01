@@ -38,6 +38,10 @@ button {
   width: 180px;
 }
 
+h2#game-result {
+  padding: 6px 0;
+}
+
 .clear-both {
   clear: both;
 }

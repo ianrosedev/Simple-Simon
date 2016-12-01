@@ -80,7 +80,8 @@ $(function() {
     $('#play-game').prop('disabled', false);
 
     if (CpuColors.join('') !== UserColors.join('')) {
-      $('#game-result').html(`Sorry, It Was: ${CpuColors.join(', ')}`).attr('class', 'red');
+      $('#result').addClass('red');
+      $('#game-result').html(`Sorry, It Was: ${CpuColors.join(', ')}`);
       $('#user-input-answers').html(`Your Guess: ${UserColors.join(', ') || 'At least try to guess!'}`);
       $('#play-game').html('Play Again?').removeClass('hide');
 
@@ -89,8 +90,10 @@ $(function() {
       timeWait = 1000,
       timeFlash = 500,
       speedUpEvery = 3;
+
     } else {
-      $('#game-result').html('You Got It! Press: Go Again!').attr('class', 'green');
+      $('#result').addClass('green');
+      $('#game-result').html('You Got It! Press: Go Again!');
       $('#user-input-answers').html('');
       $('#play-game').html('Go Again!').removeClass('hide');
     }
@@ -103,6 +106,7 @@ $(function() {
     $('#submit-answer').prop('disabled', false).removeClass('hide');
 
     // Clear data
+    $('#result').removeClass();
     $('#user-input-answers, #game-result').html('');
     UserColors = [];
   });
