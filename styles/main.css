@@ -11,11 +11,11 @@ body {
   margin: auto;
 }
 
-#green-tile, #red-tile, #blue-tile, #yellow-tile {
-  width: 200px;
-  height: 200px;
-  float: left;
-}
+  #green-tile, #red-tile, #blue-tile, #yellow-tile {
+    width: 200px;
+    height: 200px;
+    float: left;
+  }
 
 .green, #green-tile {
   background-color: green;
@@ -53,4 +53,16 @@ h2#game-result {
 
 .hide {
   display: none;
+}
+
+/* Mobile */
+@media only screen and (min-device-width : 360px) and (max-device-width : 450px) {
+  #game {
+    width: 360;
+  }
+
+  #green-tile, #red-tile, #blue-tile, #yellow-tile {
+    width: 180px;
+    height: 180px;
+  }
 }
