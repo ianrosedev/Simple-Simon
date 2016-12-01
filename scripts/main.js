@@ -44,7 +44,7 @@ $(function() {
     let self = this;
     setTimeout(function() {
       $(self).removeClass('darken');
-    }, 250);
+    }, 205);
   });
 
   $('#red-tile').on('mousedown', function() {
@@ -53,7 +53,7 @@ $(function() {
     let self = this;
     setTimeout(function() {
       $(self).removeClass('darken');
-    }, 250);
+    }, 205);
   });
 
   $('#blue-tile').on('mousedown', function() {
@@ -62,7 +62,7 @@ $(function() {
     let self = this;
     setTimeout(function() {
       $(self).removeClass('darken');
-    }, 250);
+    }, 205);
   });
 
   $('#yellow-tile').on('mousedown', function() {
@@ -71,7 +71,7 @@ $(function() {
     let self = this;
     setTimeout(function() {
       $(self).removeClass('darken');
-    }, 250);
+    }, 205);
   });
 
   // User Submit
