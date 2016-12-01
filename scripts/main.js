@@ -4,7 +4,8 @@ $(function() {
       UserColors = [],
       timeWait = 1000,
       timeFlash = 500,
-      speedUpEvery = 3;
+      speedUpEvery = 3,
+      clickable = false;
 
   // Array of colors
   function colorsArray() {
@@ -32,6 +33,7 @@ $(function() {
         $('#' + array[i] + '-tile').addClass('darken');
         setTimeout(function() {
           $('#' + array[i] + '-tile').removeClass('darken');
+          if (i === l - 1) clickable = true;
         }, timeFlash);
       }, i * timeWait);
     }
@@ -39,39 +41,47 @@ $(function() {
 
   // User Input
   $('#green-tile').on('mousedown', function() {
-    UserColors.push('green');
-    $(this).addClass('darken');
-    let self = this;
-    setTimeout(function() {
-      $(self).removeClass('darken');
-    }, 205);
+    if (clickable) {
+      UserColors.push('green');
+      $(this).addClass('darken');
+      let self = this;
+      setTimeout(function() {
+        $(self).removeClass('darken');
+      }, 205);
+    }
   });
 
   $('#red-tile').on('mousedown', function() {
-    UserColors.push('red');
-    $(this).addClass('darken');
-    let self = this;
-    setTimeout(function() {
-      $(self).removeClass('darken');
-    }, 205);
+    if (clickable) {
+      UserColors.push('red');
+      $(this).addClass('darken');
+      let self = this;
+      setTimeout(function() {
+        $(self).removeClass('darken');
+      }, 205);
+    }
   });
 
   $('#blue-tile').on('mousedown', function() {
-    UserColors.push('blue');
-    $(this).addClass('darken');
-    let self = this;
-    setTimeout(function() {
-      $(self).removeClass('darken');
-    }, 205);
+    if (clickable) {
+      UserColors.push('blue');
+      $(this).addClass('darken');
+      let self = this;
+      setTimeout(function() {
+        $(self).removeClass('darken');
+      }, 205);
+    }
   });
 
   $('#yellow-tile').on('mousedown', function() {
-    UserColors.push('yellow');
-    $(this).addClass('darken');
-    let self = this;
-    setTimeout(function() {
-      $(self).removeClass('darken');
-    }, 205);
+    if (clickable) {
+      UserColors.push('yellow');
+      $(this).addClass('darken');
+      let self = this;
+      setTimeout(function() {
+        $(self).removeClass('darken');
+      }, 205);
+    }
   });
 
   // User Submit
@@ -80,6 +90,7 @@ $(function() {
     $('#play-game').prop('disabled', false);
 
     if (CpuColors.join('') !== UserColors.join('')) {
+      clickable = false;
       $('#result').addClass('red');
       $('#game-result').html(`Sorry, It Was: ${CpuColors.join(', ')}`);
       $('#user-input-answers').html(`Your Guess: ${UserColors.join(', ') || 'At least try to guess!'}`);
@@ -92,6 +103,7 @@ $(function() {
       speedUpEvery = 3;
 
     } else {
+      clickable = false;
       $('#result').addClass('green');
       $('#game-result').html('You Got It! Press: Go Again!');
       $('#user-input-answers').html('');
