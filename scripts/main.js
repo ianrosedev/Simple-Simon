@@ -83,14 +83,14 @@ $(function() {
   // User Submit
   $('#submit-answer').on('click', function() {
     $(this).prop('disabled', true).addClass('hide');
-    $('#play-game').prop('disabled', false);
+    $('#play-game').prop('disabled', false).removeClass('hide');
 
     if (CpuColors.join('') !== UserColors.join('')) {
       clickable = false;
       $('#result').addClass('red');
       $('#game-result').html(`Sorry, It Was: ${CpuColors.join(', ')}`);
       $('#user-input-answers').html(`Your Guess: ${UserColors.join(', ') || 'At least try to guess!'}`);
-      $('#play-game').html('Play Again?').removeClass('hide');
+      $('#play-game').html('Play Again?');
 
       // Reset data
       CpuColors = [];
@@ -103,7 +103,7 @@ $(function() {
       $('#result').addClass('green');
       $('#game-result').html('You Got It! Press: Go Again!');
       $('#user-input-answers').html('');
-      $('#play-game').html('Go Again!').removeClass('hide');
+      $('#play-game').html('Go Again!');
     }
   });
 
