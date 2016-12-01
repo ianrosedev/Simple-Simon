@@ -43,10 +43,9 @@ $(function() {
   $('#green-tile').on('mousedown', function() {
     if (clickable) {
       UserColors.push('green');
-      $(this).addClass('darken');
-      let self = this;
+      $('#green-tile').addClass('darken');
       setTimeout(function() {
-        $(self).removeClass('darken');
+        $('#green-tile').removeClass('darken');
       }, 205);
     }
   });
@@ -54,10 +53,9 @@ $(function() {
   $('#red-tile').on('mousedown', function() {
     if (clickable) {
       UserColors.push('red');
-      $(this).addClass('darken');
-      let self = this;
+      $('#red-tile').addClass('darken');
       setTimeout(function() {
-        $(self).removeClass('darken');
+        $('#red-tile').removeClass('darken');
       }, 205);
     }
   });
@@ -65,10 +63,9 @@ $(function() {
   $('#blue-tile').on('mousedown', function() {
     if (clickable) {
       UserColors.push('blue');
-      $(this).addClass('darken');
-      let self = this;
+      $('#blue-tile').addClass('darken');
       setTimeout(function() {
-        $(self).removeClass('darken');
+        $('#blue-tile').removeClass('darken');
       }, 205);
     }
   });
@@ -76,10 +73,9 @@ $(function() {
   $('#yellow-tile').on('mousedown', function() {
     if (clickable) {
       UserColors.push('yellow');
-      $(this).addClass('darken');
-      let self = this;
+      $('#yellow-tile').addClass('darken');
       setTimeout(function() {
-        $(self).removeClass('darken');
+        $('#yellow-tile').removeClass('darken');
       }, 205);
     }
   });
