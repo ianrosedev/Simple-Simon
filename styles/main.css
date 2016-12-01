@@ -34,9 +34,9 @@ body {
 }
 
 button {
-  font-size: 18px;
-  margin-top: 20px;
   width: 180px;
+  margin-top: 20px;
+  font-size: 22px;
 }
 
 h2#game-result {
