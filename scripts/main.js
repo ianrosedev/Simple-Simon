@@ -88,7 +88,7 @@ $(function() {
     if (CpuColors.join('') !== UserColors.join('')) {
       clickable = false;
       $('#result').addClass('red');
-      $('#game-result').html(`Sorry, It Was: ${CpuColors.join(', ')}`);
+      $('#game-result').html(`Sorry, it was: ${CpuColors.join(', ')}`);
       $('#user-input-answers').html(`Your Guess: ${UserColors.join(', ') || 'At least try to guess!'}`);
       $('#play-game').html('Play Again?');
 
