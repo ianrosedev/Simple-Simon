@@ -1,3 +1,11 @@
-# The game 'Simon'.
+# Simon
+See if you can match the colors!
 
-## Play [here](https://gentle-sea-10620.herokuapp.com/index.html)!
+
+## Install & Play
+To download:
+```
+git clone https://github.com/ianrosedev/Simple-Simon.git
+```
+
+Double-click on ```index.html``` and have fun!
